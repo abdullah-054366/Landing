@@ -33,7 +33,12 @@ function StoreButton({ href, icon, small, big, download }) {
   );
   const base = "flex h-16 min-w-[210px] items-center gap-3 rounded-2xl px-5 transition";
   return ready ? (
-    <a href={href} download={download} className={`${base} bg-white text-ink hover:bg-gold-light`}>
+    <a
+      href={href}
+      download={href.startsWith("/") ? download : undefined}
+      rel="noopener"
+      className={`${base} bg-white text-ink hover:bg-gold-light`}
+    >
       {content}
     </a>
   ) : (
